@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A luxury fashion item",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Product name" },
+        "price": { "type": "number", "description": "Price in PKR" },
+        "category": { "type": "string", "description": "Main category" },
+        "subCategory": { "type": "string", "description": "Sub category" },
+        "images": { "type": "array", "items": { "type": "string" }, "description": "Image URLs" },
+        "description": { "type": "string", "description": "Product description" },
+        "fabric": { "type": "string", "description": "Fabric details" },
+        "care": { "type": "array", "items": { "type": "string" }, "description": "Care instructions" },
+        "isNew": { "type": "boolean", "description": "Is new arrival" },
+        "isLuxury": { "type": "boolean", "description": "Is luxury collection" },
+        "colors": { "type": "array", "items": { "type": "string" }, "description": "Available colors" },
+        "sizes": { "type": "array", "items": { "type": "string" }, "description": "Available sizes" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["name", "price", "category", "subCategory", "images", "description"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User specific data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "wishlist": { "type": "array", "items": { "type": "string" } },
+        "cart": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Store products"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Store user profiles"
+    }
+  }
+}

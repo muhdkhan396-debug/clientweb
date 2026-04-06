@@ -1,0 +1,7 @@
+{
+  "name": "US BRIDALS - Luxury Pakistani Fashion",
+  "description": "US BRIDALS - Pakistan's premier luxury boutique. Experience the finest in unstitched, ready-to-wear, and luxury formal collections, crafted with heritage and modern elegance.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
